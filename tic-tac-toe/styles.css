@@ -177,3 +177,13 @@ header {
 #p2, #comp {
     color: #00b4b4;
 }
+
+@media (orientation: portrait) {
+    #logo {
+        width: 150px;
+    }
+    
+    #board > img {
+        width: 110px;
+    }
+}
