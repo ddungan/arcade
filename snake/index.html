@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" sizes="152x152" href="images/dot-logo_152x152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/dot-logo_152x152.png" />
+    <link rel="shortcut icon" sizes="144x144" href="images/dot-logo_144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/dot-logo_144x144.png" />
+    <link rel="shortcut icon" sizes="120x120" href="images/dot-logo_120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/dot-logo_120x120.png" />
+    <link rel="shortcut icon" sizes="96x96" href="images/dot-logo_96x96.png" />
+    <link rel="shortcut icon" sizes="76x76" href="images/dot-logo_76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/dot-logo_76x76.png" />
+    <link rel="shortcut icon" sizes="72x72" href="images/dot-logo_72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/dot-logo_72x72.png" />
+    <link rel="shortcut icon" sizes="60x60" href="images/dot-logo_60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/dot-logo_60x60.png" />
+    <link rel="shortcut icon" sizes="48x48" href="images/dot-logo_48x48.png" />
+    <link rel="shortcut icon" sizes="32x32" href="images/dot-logo_32x32.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+</head>
+
+<body class="supercontainer">
+    <header><div id="p1">Player 1</div><img id="logo" src="images/ti-zlogo.png" /><div id="comp" class="computer">Computer</div><div id="p2" class="player-two">Player 2</div></header>
+    <div id="board">
+
+        <div id="0101" class="odd"></div>
+        <div id="0102" class="even"></div>
+        <div id="0103" class="odd"></div>
+        <div id="0104" class="even"></div>
+        <div id="0105" class="odd"></div>
+        <div id="0106" class="even"></div>
+        <div id="0107" class="odd"></div>
+        <div id="0108" class="even"></div>
+        <div id="0109" class="odd"></div>
+        <div id="0110" class="even"></div>
+        <div id="0111" class="odd"></div>
+
+        <div id="0201" class="even"></div>
+        <div id="0202" class="odd"></div>
+        <div id="0203" class="even"></div>
+        <div id="0204" class="odd"></div>
+        <div id="0205" class="even"></div>
+        <div id="0206" class="odd"></div>
+        <div id="0207" class="even"></div>
+        <div id="0208" class="odd"></div>
+        <div id="0209" class="even"></div>
+        <div id="0210" class="odd"></div>
+        <div id="0211" class="even"></div>
+
+        <div id="0301" class="odd"></div>
+        <div id="0302" class="even"></div>
+        <div id="0303" class="odd"></div>
+        <div id="0304" class="even"></div>
+        <div id="0305" class="odd"></div>
+        <div id="0306" class="even"></div>
+        <div id="0307" class="odd"></div>
+        <div id="0308" class="even"></div>
+        <div id="0309" class="odd"></div>
+        <div id="0310" class="even"></div>
+        <div id="0311" class="odd"></div>
+
+        <div id="0401" class="even"></div>
+        <div id="0402" class="odd"></div>
+        <div id="0403" class="even"></div>
+        <div id="0404" class="odd"></div>
+        <div id="0405" class="even"></div>
+        <div id="0406" class="odd"></div>
+        <div id="0407" class="even"></div>
+        <div id="0408" class="odd"></div>
+        <div id="0409" class="even"></div>
+        <div id="0410" class="odd"></div>
+        <div id="0411" class="even"></div>
+
+        <div id="0501" class="odd"></div>
+        <div id="0502" class="even"></div>
+        <div id="0503" class="odd"></div>
+        <div id="0504" class="even"></div>
+        <div id="0505" class="odd"></div>
+        <div id="0506" class="even"></div>
+        <div id="0507" class="odd"></div>
+        <div id="0508" class="even"></div>
+        <div id="0509" class="odd"></div>
+        <div id="0510" class="even"></div>
+        <div id="0511" class="odd"></div>
+
+        <div id="0601" class="even"></div>
+        <div id="0602" class="odd"></div>
+        <div id="0603" class="even"></div>
+        <div id="0604" class="odd"></div>
+        <div id="0605" class="even"></div>
+        <div id="0606" class="odd"></div>
+        <div id="0607" class="even"></div>
+        <div id="0608" class="odd"></div>
+        <div id="0609" class="even"></div>
+        <div id="0610" class="odd"></div>
+        <div id="0611" class="even"></div>
+
+        <div id="0701" class="odd"></div>
+        <div id="0702" class="even"></div>
+        <div id="0703" class="odd"></div>
+        <div id="0704" class="even"></div>
+        <div id="0705" class="odd"></div>
+        <div id="0706" class="even"></div>
+        <div id="0707" class="odd"></div>
+        <div id="0708" class="even"></div>
+        <div id="0709" class="odd"></div>
+        <div id="0710" class="even"></div>
+        <div id="0711" class="odd"></div>
+
+        <div id="0801" class="even"></div>
+        <div id="0802" class="odd"></div>
+        <div id="0803" class="even"></div>
+        <div id="0804" class="odd"></div>
+        <div id="0805" class="even"></div>
+        <div id="0806" class="odd"></div>
+        <div id="0807" class="even"></div>
+        <div id="0808" class="odd"></div>
+        <div id="0809" class="even"></div>
+        <div id="0810" class="odd"></div>
+        <div id="0811" class="even"></div>
+
+        <div id="0901" class="odd"></div>
+        <div id="0902" class="even"></div>
+        <div id="0903" class="odd"></div>
+        <div id="0904" class="even"></div>
+        <div id="0905" class="odd"></div>
+        <div id="0906" class="even"></div>
+        <div id="0907" class="odd"></div>
+        <div id="0908" class="even"></div>
+        <div id="0909" class="odd"></div>
+        <div id="0910" class="even"></div>
+        <div id="0911" class="odd"></div>
+
+        <div id="1001" class="even"></div>
+        <div id="1002" class="odd"></div>
+        <div id="1003" class="even"></div>
+        <div id="1004" class="odd"></div>
+        <div id="1005" class="even"></div>
+        <div id="1006" class="odd"></div>
+        <div id="1007" class="even"></div>
+        <div id="1008" class="odd"></div>
+        <div id="1009" class="even"></div>
+        <div id="1010" class="odd"></div>
+        <div id="1011" class="even"></div>
+
+        <div id="1101" class="odd"></div>
+        <div id="1102" class="even"></div>
+        <div id="1103" class="odd"></div>
+        <div id="1104" class="even"></div>
+        <div id="1105" class="odd"></div>
+        <div id="1106" class="even"></div>
+        <div id="1107" class="odd"></div>
+        <div id="1108" class="even"></div>
+        <div id="1109" class="odd"></div>
+        <div id="1110" class="even"></div>
+        <div id="1111" class="odd"></div>
+
+        <div id="1201" class="even"></div>
+        <div id="1202" class="odd"></div>
+        <div id="1203" class="even"></div>
+        <div id="1204" class="odd"></div>
+        <div id="1205" class="even"></div>
+        <div id="1206" class="odd"></div>
+        <div id="1207" class="even"></div>
+        <div id="1208" class="odd"></div>
+        <div id="1209" class="even"></div>
+        <div id="1210" class="odd"></div>
+        <div id="1211" class="even"></div>
+
+        <div id="1301" class="odd"></div>
+        <div id="1302" class="even"></div>
+        <div id="1303" class="odd"></div>
+        <div id="1304" class="even"></div>
+        <div id="1305" class="odd"></div>
+        <div id="1306" class="even"></div>
+        <div id="1307" class="odd"></div>
+        <div id="1308" class="even"></div>
+        <div id="1309" class="odd"></div>
+        <div id="1310" class="even"></div>
+        <div id="1311" class="odd"></div>
+
+        <div id="1401" class="even"></div>
+        <div id="1402" class="odd"></div>
+        <div id="1403" class="even"></div>
+        <div id="1404" class="odd"></div>
+        <div id="1405" class="even"></div>
+        <div id="1406" class="odd"></div>
+        <div id="1407" class="even"></div>
+        <div id="1408" class="odd"></div>
+        <div id="1409" class="even"></div>
+        <div id="1410" class="odd"></div>
+        <div id="1411" class="even"></div>
+
+        <div id="1501" class="odd"></div>
+        <div id="1502" class="even"></div>
+        <div id="1503" class="odd"></div>
+        <div id="1504" class="even"></div>
+        <div id="1505" class="odd"></div>
+        <div id="1506" class="even"></div>
+        <div id="1507" class="odd"></div>
+        <div id="1508" class="even"></div>
+        <div id="1509" class="odd"></div>
+        <div id="1510" class="even"></div>
+        <div id="1511" class="odd"></div>
+
+        <div id="1601" class="even"></div>
+        <div id="1602" class="odd"></div>
+        <div id="1603" class="even"></div>
+        <div id="1604" class="odd"></div>
+        <div id="1605" class="even"></div>
+        <div id="1606" class="odd"></div>
+        <div id="1607" class="even"></div>
+        <div id="1608" class="odd"></div>
+        <div id="1609" class="even"></div>
+        <div id="1610" class="odd"></div>
+        <div id="1611" class="even"></div>
+
+        <div id="1701" class="odd"></div>
+        <div id="1702" class="even"></div>
+        <div id="1703" class="odd"></div>
+        <div id="1704" class="even"></div>
+        <div id="1705" class="odd"></div>
+        <div id="1706" class="even"></div>
+        <div id="1707" class="odd"></div>
+        <div id="1708" class="even"></div>
+        <div id="1709" class="odd"></div>
+        <div id="1710" class="even"></div>
+        <div id="1711" class="odd"></div>
+
+        <div id="1801" class="even"></div>
+        <div id="1802" class="odd"></div>
+        <div id="1803" class="even"></div>
+        <div id="1804" class="odd"></div>
+        <div id="1805" class="even"></div>
+        <div id="1806" class="odd"></div>
+        <div id="1807" class="even"></div>
+        <div id="1808" class="odd"></div>
+        <div id="1809" class="even"></div>
+        <div id="1810" class="odd"></div>
+        <div id="1811" class="even"></div>
+
+        <div id="1901" class="odd"></div>
+        <div id="1902" class="even"></div>
+        <div id="1903" class="odd"></div>
+        <div id="1904" class="even"></div>
+        <div id="1905" class="odd"></div>
+        <div id="1906" class="even"></div>
+        <div id="1907" class="odd"></div>
+        <div id="1908" class="even"></div>
+        <div id="1909" class="odd"></div>
+        <div id="1910" class="even"></div>
+        <div id="1911" class="odd"></div>
+
+        <div id="2001" class="even"></div>
+        <div id="2002" class="odd"></div>
+        <div id="2003" class="even"></div>
+        <div id="2004" class="odd"></div>
+        <div id="2005" class="even"></div>
+        <div id="2006" class="odd"></div>
+        <div id="2007" class="even"></div>
+        <div id="2008" class="odd"></div>
+        <div id="2009" class="even"></div>
+        <div id="2010" class="odd"></div>
+        <div id="2011" class="even"></div>
+
+        <div id="2101" class="odd"></div>
+        <div id="2102" class="even"></div>
+        <div id="2103" class="odd"></div>
+        <div id="2104" class="even"></div>
+        <div id="2105" class="odd"></div>
+        <div id="2106" class="even"></div>
+        <div id="2107" class="odd"></div>
+        <div id="2108" class="even"></div>
+        <div id="2109" class="odd"></div>
+        <div id="2110" class="even"></div>
+        <div id="2111" class="odd"></div>
+    </div>
+    <!-- <div id="players-form-div">
+        <form id="players-form">
+            <div id="player-one" class="players">
+                <input type='text' name='player-1' placeholder="Player 1" />
+            </div>
+            <p>VS.</p>
+            <div id="player-two" class="player-two">
+                <input type="text" name="player-2" placeholder="Player 2" />
+            </div>
+            <div id="computer" class="computer">
+            Computer
+            </div>
+            <p>
+            <div>
+                <input type="radio" id="one" name="players" value="1" checked>
+                <label for="one">1 Player</label>
+            </div>
+            <div>
+                <input type="radio" id="two" name="players" value="2">
+                <label for="two">2 Players</label>
+            </div>
+            </p>
+            <button>Start Game!</button>
+        </form>
+    </div> -->
+</body>
+</html>
