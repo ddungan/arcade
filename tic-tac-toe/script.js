@@ -1,7 +1,24 @@
 const ex = 'x';
 const oh = 'o';
 
+
 let brd = {};
+
+function emptyBrd() {
+    brd = {
+        one: null,
+        two: null,
+        thr: null,
+        fou: null,
+        fiv: null,
+        six: null,
+        sev: null,
+        eig: null,
+        nin: null
+    };
+}
+
+emptyBrd()
 
 let comp;
 
@@ -21,7 +38,6 @@ function didAnyoneWin() {
         $('#x-wins-div').css('display', 'flex');
         oneScore += 1;
         $('#p1-sc').text(oneScore + '-');
-        comp = 2;
     } else if ((brd.one === oh && brd.two === oh && brd.thr === oh) 
     || (brd.fou === oh && brd.fiv === oh && brd.six === oh) 
     || (brd.sev === oh && brd.eig === oh && brd.nin === oh) 
@@ -33,10 +49,8 @@ function didAnyoneWin() {
         $('#o-wins-div').css('display', 'flex');
         twoScore += 1
         $('#p2-sc').text('-' + twoScore);
-        comp = 2;
     } else if (brd.one && brd.two && brd.thr && brd.fou && brd.fiv && brd.six && brd.sev && brd.eig && brd.nin) {
         $('#no-wins-div').css('display', 'flex');
-        comp = 2;
     }
 }
 
@@ -88,7 +102,8 @@ function onStartClick() {
 $('#start').click(onStartClick)
 
 function onAgainClick() {
-    brd = {};
+    
+    emptyBrd()
 
     turn = ex;
 
@@ -110,63 +125,63 @@ function onAgainClick() {
 $('.again').click(onAgainClick)
 
 function playOne() {
-    brd['one'] = oh;
+    brd.one = oh;
     $('#one').replaceWith('<img src="images/ti-one-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playTwo() {
-    brd['two'] = oh;
+    brd.two = oh;
     $('#two').replaceWith('<img src="images/ti-two-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playThr() {
-    brd['thr'] = oh;
+    brd.thr = oh;
     $('#thr').replaceWith('<img src="images/ti-thr-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playFou() {
-    brd['fou'] = oh;
+    brd.fou = oh;
     $('#fou').replaceWith('<img src="images/ti-fou-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playFiv() {
-    brd['fiv'] = oh;
+    brd.fiv = oh;
     $('#fiv').replaceWith('<img src="images/ti-fiv-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playSix() {
-    brd['six'] = oh;
+    brd.six = oh;
     $('#six').replaceWith('<img src="images/ti-six-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playSev() {
-    brd['sev'] = oh;
+    brd.sev = oh;
     $('#sev').replaceWith('<img src="images/ti-sev-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playEig() {
-    brd['eig'] = oh;
+    brd.eig = oh;
     $('#eig').replaceWith('<img src="images/ti-eig-o.png" />')
     updateTurn()
     didAnyoneWin()
 }
 
 function playNin() {
-    brd['nin'] = oh;
+    brd.nin = oh;
     $('#nin').replaceWith('<img src="images/ti-nin-o.png" />')
     updateTurn()
     didAnyoneWin()
@@ -174,137 +189,102 @@ function playNin() {
 
 function playComp() {
     if (comp === 1 && turn === oh) {
-        if ((brd.two === oh && brd.thr === oh) 
-        || (brd.fou === oh && brd.sev === oh) 
-        || (brd.fiv === oh && brd.nin === oh)
-        && (brd.one != ex)) {   
+        if ((brd.two === oh && brd.thr === oh && brd.one === null) 
+        || (brd.fou === oh && brd.sev === oh && brd.one === null) 
+        || (brd.fiv === oh && brd.nin === oh && brd.one === null)) {   
             playOne()
-        } else if ((brd.one === oh && brd.thr === oh)
-        || (brd.fiv === oh && brd.eig === oh)
-        && (brd.two != ex)) {
+        } else if ((brd.one === oh && brd.thr === oh && brd.two === null)
+        || (brd.fiv === oh && brd.eig === oh && brd.two === null)) {
             playTwo()
-        } else if ((brd.one === oh && brd.two === oh)
-        || (brd.six === oh && brd.nin === oh) 
-        || (brd.fiv === oh && brd.sev === oh)
-        && (brd.thr != ex)) {
+        } else if ((brd.one === oh && brd.two === oh && brd.thr === null)
+        || (brd.six === oh && brd.nin === oh && brd.thr === null) 
+        || (brd.fiv === oh && brd.sev === oh && brd.thr === null)) {
             playThr()
-        } else if ((brd.fiv === oh && brd.six === oh) 
-        || (brd.one === oh && brd.sev === oh)
-        && (brd.fou != ex)) {
+        } else if ((brd.fiv === oh && brd.six === oh && brd.fou === null) 
+        || (brd.one === oh && brd.sev === oh && brd.fou === null)) {
             playFou()
-        } else if ((brd.fou === oh && brd.six === oh)
-        || (brd.two === oh && brd.eig === oh) 
-        || (brd.one === oh && brd.nin === oh) 
-        || (brd.thr === oh && brd.sev === oh)
-        && (brd.fiv != ex)) {
+        } else if ((brd.fou === oh && brd.six === oh && brd.fiv === null)
+        || (brd.two === oh && brd.eig === oh && brd.fiv === null) 
+        || (brd.one === oh && brd.nin === oh && brd.fiv === null) 
+        || (brd.thr === oh && brd.sev === oh && brd.fiv === null)) {
             playFiv()
-        } else if ((brd.fou === oh && brd.fiv === oh) 
-        || (brd.thr === oh && brd.nin === oh)
-        && (brd.six != ex)) {
+        } else if ((brd.fou === oh && brd.fiv === oh && brd.six === null) 
+        || (brd.thr === oh && brd.nin === oh && brd.six === null)) {
             playSix()
-        } else if ((brd.eig === oh && brd.nin === oh) 
-        || (brd.one === oh && brd.fou === oh) 
-        || (brd.thr === oh && brd.fiv === oh)
-        && (brd.sev != ex)) {
+        } else if ((brd.eig === oh && brd.nin === oh && brd.sev === null) 
+        || (brd.one === oh && brd.fou === oh && brd.sev === null) 
+        || (brd.thr === oh && brd.fiv === oh && brd.sev === null)) {
             playSev()
-        } else if ((brd.sev === oh && brd.nin === oh)
-        || (brd.two === oh && brd.fiv === oh)
-        && (brd.eig != ex)) {
+        } else if ((brd.sev === oh && brd.nin === oh && brd.eig === null)
+        || (brd.two === oh && brd.fiv === oh && brd.eig === null)) {
             playEig()
-        } else if ((brd.sev === oh && brd.eig === oh) 
-        || (brd.thr === oh && brd.six === oh) 
-        || (brd.one === oh && brd.fiv === oh)
-        && (brd.nin != ex)) {
+        } else if ((brd.sev === oh && brd.eig === oh && brd.nin === null) 
+        || (brd.thr === oh && brd.six === oh && brd.nin === null) 
+        || (brd.one === oh && brd.fiv === oh && brd.nin === null)) {
             playNin()
-        } else if ((brd.two === ex && brd.thr === ex) 
-        || (brd.fou === ex && brd.sev === ex) 
-        || (brd.fiv === ex && brd.nin === ex)
-        && (brd.one != ex)) {   
+        } else if ((brd.two === ex && brd.thr === ex && brd.one === null) 
+        || (brd.fou === ex && brd.sev === ex && brd.one === null) 
+        || (brd.fiv === ex && brd.nin === ex && brd.one === null)) {   
             playOne()
-        } else if ((brd.one === ex && brd.thr === ex)
-        || (brd.fiv === ex && brd.eig === ex)
-        && (brd.two != ex)) {
+        } else if ((brd.one === ex && brd.thr === ex && brd.two === null)
+        || (brd.fiv === ex && brd.eig === ex && brd.two === null)) {
             playTwo()
-        } else if ((brd.one === ex && brd.two === ex)
-        || (brd.six === ex && brd.nin === ex) 
-        || (brd.fiv === ex && brd.sev === ex)
-        && (brd.thr != ex)) {
+        } else if ((brd.one === ex && brd.two === ex && brd.thr === null)
+        || (brd.six === ex && brd.nin === ex && brd.thr === null) 
+        || (brd.fiv === ex && brd.sev === ex && brd.thr === null)) {
             playThr()
-        } else if ((brd.fiv === ex && brd.six === ex) 
-        || (brd.one === ex && brd.sev === ex)
-        && (brd.fou != ex)) {
+        } else if ((brd.fiv === ex && brd.six === ex && brd.fou === null) 
+        || (brd.one === ex && brd.sev === ex && brd.fou === null)) {
             playFou()
-        } else if ((brd.fou === ex && brd.six === ex)
-        || (brd.two === ex && brd.eig === ex) 
-        || (brd.one === ex && brd.nin === ex) 
-        || (brd.thr === ex && brd.sev === ex)
-        && (brd.fiv != ex)) {
+        } else if ((brd.fou === ex && brd.six === ex && brd.fiv === null)
+        || (brd.two === ex && brd.eig === ex && brd.fiv === null) 
+        || (brd.one === ex && brd.nin === ex && brd.fiv === null) 
+        || (brd.thr === ex && brd.sev === ex && brd.fiv === null)) {
             playFiv()
-        } else if ((brd.fou === ex && brd.fiv === ex) 
-        || (brd.thr === ex && brd.nin === ex)
-        && (brd.six != ex)) {
+        } else if ((brd.fou === ex && brd.fiv === ex && brd.six === null) 
+        || (brd.thr === ex && brd.nin === ex && brd.six === null)) {
             playSix()
-        } else if ((brd.eig === ex && brd.nin === ex) 
-        || (brd.one === ex && brd.fou === ex) 
-        || (brd.thr === ex && brd.fiv === ex)
-        && (brd.sev != ex)) {
+        } else if ((brd.eig === ex && brd.nin === ex && brd.sev === null) 
+        || (brd.one === ex && brd.fou === ex && brd.sev === null) 
+        || (brd.thr === ex && brd.fiv === ex && brd.sev === null)) {
             playSev()
-        } else if ((brd.sev === ex && brd.nin === ex)
-        || (brd.two === ex && brd.fiv === ex)
-        && (brd.eig != ex)) {
+        } else if ((brd.sev === ex && brd.nin === ex && brd.eig === null)
+        || (brd.two === ex && brd.fiv === ex && brd.eig === null)) {
             playEig()
-        } else if ((brd.sev === ex && brd.eig === ex) 
-        || (brd.thr === ex && brd.six === ex) 
-        || (brd.one === ex && brd.fiv === ex)
-        && (brd.nin != ex)) {
+        } else if ((brd.sev === ex && brd.eig === ex && brd.nin === null) 
+        || (brd.thr === ex && brd.six === ex && brd.nin === null) 
+        || (brd.one === ex && brd.fiv === ex && brd.nin === null)) {
             playNin()
-        } else if ((brd.one === ex)
-        || (brd.thr === ex)
-        || (brd.sev === ex)
-        || (brd.sev === ex) 
-        && (brd.fiv != ex)
-        && (brd.fiv != oh)) {
+        } else if ((brd.one === ex && brd.fiv === null)
+        || (brd.thr === ex && brd.fiv === null)
+        || (brd.sev === ex && brd.fiv === null)
+        || (brd.sev === ex && brd.fiv === null)) {
             playFiv()
-        } else if ((brd.fiv === ex)
-        && (brd.nin != ex)
-        && (brd.nin != oh)) {
+        } else if (brd.fiv === ex && brd.nin === null) {
             playNin()
-        } else if ((brd.two === ex)
-        || (brd.fou === ex)
-        && (brd.nin != ex)
-        && (brd.nin != oh)) {
+        } else if ((brd.two === ex && brd.nin === null)
+        || (brd.fou === ex && brd.nin === null)) {
             playNin()
-        } else if ((brd.six === ex)
-        || (brd.eig === ex)
-        && (brd.one != ex)
-        && (brd.one != oh)) {
+        } else if ((brd.six === ex && brd.one === null)
+        || (brd.eig === ex && brd.one === null)) {
             playOne()
-        } else if ((brd.one != ex)
-        && (brd.one != oh)) {
+        } else if (brd.one === null) {
             playOne()
-        } else if ((brd.two != ex)
-        && (brd.two != oh)) {
+        } else if (brd.two === null) {
             playTwo()
-        } else if ((brd.thr != ex)
-        && (brd.thr != oh)) {
+        } else if (brd.thr === null) {
             playThr()
-        } else if ((brd.fou != ex)
-        && (brd.fou != oh)) {
+        } else if (brd.fou === null) {
             playFou()
-        } else if ((brd.fiv != ex)
-        && (brd.fiv != oh)) {
+        } else if (brd.fiv === null) {
             playFiv()
-        } else if ((brd.six != ex)
-        && (brd.six != oh)) {
+        } else if (brd.six === null) {
             playSix()
-        } else if ((brd.sev != ex)
-        && (brd.sev !== oh)) {
+        } else if (brd.sev === null) {
             playSev()
-        } else if ((brd.eig != ex)
-        && (brd.eig !== oh)) {
+        } else if (brd.eig === null) {
             playEig()
-        } else if ((brd.nin != ex)
-        && (brd.nin !== oh)) {
+        } else if (brd.nin === null) {
             playNin()
         }
     }
