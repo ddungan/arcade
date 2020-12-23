@@ -55,7 +55,16 @@ function didAnyoneWin() {
 }
 
 function didCompWin() {
-    if ((brd.one === oh && brd.two === oh && brd.thr === oh) 
+    if ((brd.one === ex && brd.two === ex && brd.thr === ex) 
+    || (brd.fou === ex && brd.fiv === ex && brd.six === ex) 
+    || (brd.sev === ex && brd.eig === ex && brd.nin === ex) 
+    || (brd.one === ex && brd.fou === ex && brd.sev === ex) 
+    || (brd.two === ex && brd.fiv === ex && brd.eig === ex) 
+    || (brd.thr === ex && brd.six === ex && brd.nin === ex) 
+    || (brd.one === ex && brd.fiv === ex && brd.nin === ex) 
+    || (brd.thr === ex && brd.fiv === ex && brd.sev === ex)) {
+        $('#x-wins-div').css('display', 'flex');
+    } else if ((brd.one === oh && brd.two === oh && brd.thr === oh) 
     || (brd.fou === oh && brd.fiv === oh && brd.six === oh) 
     || (brd.sev === oh && brd.eig === oh && brd.nin === oh) 
     || (brd.one === oh && brd.fou === oh && brd.sev === oh) 
