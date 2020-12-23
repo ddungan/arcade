@@ -178,6 +178,11 @@ header {
     color: #00b4b4;
 }
 
+button {
+    color: rgb(255, 200, 0);
+    background-color: #c82d2d;
+}
+
 @media (orientation: portrait) {
     #logo {
         width: 150px;
