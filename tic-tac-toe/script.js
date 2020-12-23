@@ -1,7 +1,13 @@
 const ex = 'x';
 const oh = 'o';
 
-let brd = {}
+let brd = {};
+
+let comp;
+
+let oneScore = 0;
+
+let twoScore = 0;
 
 function didAnyoneWin() {
     if ((brd.one === ex && brd.two === ex && brd.thr === ex) 
@@ -13,6 +19,9 @@ function didAnyoneWin() {
     || (brd.one === ex && brd.fiv === ex && brd.nin === ex) 
     || (brd.thr === ex && brd.fiv === ex && brd.sev === ex)) {
         $('#x-wins-div').css('display', 'flex');
+        oneScore += 1;
+        $('#p1-sc').text(oneScore + '-');
+        comp = 2;
     } else if ((brd.one === oh && brd.two === oh && brd.thr === oh) 
     || (brd.fou === oh && brd.fiv === oh && brd.six === oh) 
     || (brd.sev === oh && brd.eig === oh && brd.nin === oh) 
@@ -22,8 +31,12 @@ function didAnyoneWin() {
     || (brd.one === oh && brd.fiv === oh && brd.nin === oh) 
     || (brd.thr === oh && brd.fiv === oh && brd.sev === oh)) {
         $('#o-wins-div').css('display', 'flex');
+        twoScore += 1
+        $('#p2-sc').text('-' + twoScore);
+        comp = 2;
     } else if (brd.one && brd.two && brd.thr && brd.fou && brd.fiv && brd.six && brd.sev && brd.eig && brd.nin) {
         $('#no-wins-div').css('display', 'flex');
+        comp = 2;
     }
 }
 
@@ -50,8 +63,6 @@ $('input[name=players]').change(function(){
   $('input[name=players]').change(function(){
     $('.computer').toggle(this.value !== '2');
   });
-
-let comp;
 
 function compOn() {
     let y = document.getElementById("r-one").checked;

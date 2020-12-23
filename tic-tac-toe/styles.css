@@ -170,11 +170,11 @@ header {
     display: flex;
 }
 
-#p1 {
+#p1, #p1-sc {
     color: #c82d2d;
 }
 
-#p2, #comp {
+#p2, #comp, #p2-sc {
     color: #00b4b4;
 }
 
