@@ -54,6 +54,23 @@ function didAnyoneWin() {
     }
 }
 
+function didCompWin() {
+    if ((brd.one === oh && brd.two === oh && brd.thr === oh) 
+    || (brd.fou === oh && brd.fiv === oh && brd.six === oh) 
+    || (brd.sev === oh && brd.eig === oh && brd.nin === oh) 
+    || (brd.one === oh && brd.fou === oh && brd.sev === oh) 
+    || (brd.two === oh && brd.fiv === oh && brd.eig === oh) 
+    || (brd.thr === oh && brd.six === oh && brd.nin === oh) 
+    || (brd.one === oh && brd.fiv === oh && brd.nin === oh) 
+    || (brd.thr === oh && brd.fiv === oh && brd.sev === oh)) {
+        $('#o-wins-div').css('display', 'flex');
+        twoScore += 1
+        $('#p2-sc').text('-' + twoScore);
+    } else if (brd.one && brd.two && brd.thr && brd.fou && brd.fiv && brd.six && brd.sev && brd.eig && brd.nin) {
+        $('#no-wins-div').css('display', 'flex');
+    }
+}
+
 let turn = ex;
 
 function updateTurn() {
@@ -128,63 +145,63 @@ function playOne() {
     brd.one = oh;
     $('#one').replaceWith('<img src="images/ti-one-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playTwo() {
     brd.two = oh;
     $('#two').replaceWith('<img src="images/ti-two-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playThr() {
     brd.thr = oh;
     $('#thr').replaceWith('<img src="images/ti-thr-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playFou() {
     brd.fou = oh;
     $('#fou').replaceWith('<img src="images/ti-fou-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playFiv() {
     brd.fiv = oh;
     $('#fiv').replaceWith('<img src="images/ti-fiv-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playSix() {
     brd.six = oh;
     $('#six').replaceWith('<img src="images/ti-six-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playSev() {
     brd.sev = oh;
     $('#sev').replaceWith('<img src="images/ti-sev-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playEig() {
     brd.eig = oh;
     $('#eig').replaceWith('<img src="images/ti-eig-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playNin() {
     brd.nin = oh;
     $('#nin').replaceWith('<img src="images/ti-nin-o.png" />')
     updateTurn()
-    didAnyoneWin()
+    didCompWin()
 }
 
 function playComp() {
